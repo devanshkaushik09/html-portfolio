@@ -26,12 +26,14 @@
                     Resume
                     <i class="fa-solid fa-file-arrow-down" ></i>
                 </a>
-                <!-- <a href="#leave-message-section">Leave a Message!</a> -->
+                <button id="theme-toggle">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
             </div>
         </nav>
     </header>
 
-        <section id="about-section">
+    <section id="about-section">
         <h2>Hey World, I am Devansh!</h2>
         <div class="headshot">
             <img src="./images/main2.jpg" alt="Portrait Image of a Boy">
@@ -60,11 +62,11 @@
                 <i class="fa-brands fa-instagram"></i>
             </a>
         </div>
-        </section>
+    </section>
 
-        <div class="divider"></div>
+    <div class="divider"></div>
 
-        <section id="projects-section">
+    <section id="projects-section">
             <h2>Projects</h2>
 
                     <!-- Software Projects Subsection -->
@@ -85,42 +87,42 @@
                     <div class="swiper-slide">
                         <a href="https://github.com/devanshkaushik09/resume-analyzer" target="_blank" class="project-box">
                             <picture>
-                                <img src="/images/resume2.png" alt="Resume Analyzer">
+                                <img src="images/resume2.png" alt="Resume Analyzer">
                             </picture>
                             <h4>AI - Resume Analyzer</h4>
                             <h5><em>Puter.js, React, Claude-Sonnet</em></h5>
                             <p>Resume Analyzer is a web app that uses AI to evaluate resumes, providing instant feedback and suggestions for improvement.</p>
                         </a>
                     </div>
+                                        <div class="swiper-slide">
+                        <a href="https://github.com/devanshkaushik09/code-editor" target="_blank" class="project-box">
+                            <picture>
+                                <img src="images/codeeditor.png" alt="SaaS Code editor">
+                            </picture>
+                            <h4>SaaS Code Editor</h4>
+                            <h5><em>Next.js 15 React.js</em></h5>
+                            <p>A SaaS code editor supporting real-time editing, syntax highlighting, and cloud storage. Designed to write, share, and review code efficiently.</p>
+                        </a>
+                    </div>
                     <div class="swiper-slide">
                         <a href="https://github.com/devanshkaushik09/chess-pygame" target="_blank" class="project-box">
                             <picture>
-                                <img src="/images/chess.png" alt="Chess using PyGame">
+                                <img src="images/chess.png" alt="Chess using PyGame">
                             </picture>
                             <h4>Chess using PyGame</h4>
                             <h5><em>Python, PyGame library</em></h5>
                             <p>A chess game built using Python's PyGame library. Features include a chessboard, move validation, and basic UI to play.</p>
                         </a>
                     </div>
-                    <div class="swiper-slide">
-                        <a href="https://github.com/devanshkaushik09/job-portal" target="_blank" class="project-box">
-                            <picture>
-                                <img src="/images/resume.png" alt="Photo Sharing App">
-                            </picture>
-                            <h4>Photo Sharing App</h4>
-                            <h5><em>ReactJS, NodeJS, MongoDB, Heroku</em></h5>
-                            <p>A MERN stack application that allows users to create a profile and share posts/locations, view them on map and check out other profiles</p>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
 
-        </section>
+    </section>
     
-        <div class="divider"></div>
+    <div class="divider"></div>
 
-        <section id="skills-section">
+    <section id="skills-section">
             <h2>Skills</h2>      
                     
             <div class="skills-container">
@@ -149,7 +151,7 @@
           
               <div class="skill-item">
                 <i class="devicon-c-plain"></i>
-                <span class="skill-tooltip">TypeScript</span>
+                <span class="skill-tooltip">C</span>
               </div>
           
               <h3>Web Technologies</h3>
@@ -172,7 +174,7 @@
           
               <div class="skill-item">
                 <i class="fa-solid fa-database"></i>
-                <span class="skill-tooltip">Databases</span>
+                <span class="skill-tooltip">MongoDB</span>
               </div>
                   
               <div class="skill-item">
@@ -237,16 +239,12 @@
               </div>
           
             </div>  
-        </section>
+    </section>
 
+    <div class="divider"></div>
 
-        <div class="divider"></div>
-
-        <!-- <section id="leave-message-section">
-            <h2>Leave a Message!</h2>
-            <p>coming soon :) </p>
-        </section> -->
 </body>
+
 <footer>
     <p>&copy; 2025 Devansh Kaushik. All Rights Reserved.</p>
 </footer>
@@ -262,6 +260,29 @@
                 spaceBetween: 0,
                 slidesPerView: 'auto'
             });
+        });
+    </script>
+    <script>
+        const toggleBtn = document.getElementById("theme-toggle");
+        const root = document.documentElement;
+
+        // Load saved theme or fallback to system
+        if (localStorage.getItem("theme")) {
+            root.setAttribute("data-theme", localStorage.getItem("theme"));
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            root.setAttribute("data-theme", "dark");
+        }
+      
+        toggleBtn.addEventListener("click", () => {
+            let currentTheme = root.getAttribute("data-theme");
+            let newTheme = currentTheme === "dark" ? "light" : "dark";
+            root.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+        
+            // Change icon
+            toggleBtn.innerHTML = newTheme === "dark"
+                ? '<i class="fa-solid fa-sun"></i>'
+                : '<i class="fa-solid fa-moon"></i>';
         });
     </script>
 </html>

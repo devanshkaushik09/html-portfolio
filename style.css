@@ -29,6 +29,17 @@ a {
     color: var(--text-color);
     text-decoration: none;
 }
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+#theme-toggle:hover {
+    color: var(--icon-hover);
+}
 
 nav {
     background-color: #bfd6c4;
