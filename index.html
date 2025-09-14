@@ -26,9 +26,6 @@
                     Resume
                     <i class="fa-solid fa-file-arrow-down" ></i>
                 </a>
-                <button id="theme-toggle">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
             </div>
         </nav>
     </header>
@@ -260,29 +257,6 @@
                 spaceBetween: 0,
                 slidesPerView: 'auto'
             });
-        });
-    </script>
-    <script>
-        const toggleBtn = document.getElementById("theme-toggle");
-        const root = document.documentElement;
-
-        // Load saved theme or fallback to system
-        if (localStorage.getItem("theme")) {
-            root.setAttribute("data-theme", localStorage.getItem("theme"));
-        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            root.setAttribute("data-theme", "dark");
-        }
-      
-        toggleBtn.addEventListener("click", () => {
-            let currentTheme = root.getAttribute("data-theme");
-            let newTheme = currentTheme === "dark" ? "light" : "dark";
-            root.setAttribute("data-theme", newTheme);
-            localStorage.setItem("theme", newTheme);
-        
-            // Change icon
-            toggleBtn.innerHTML = newTheme === "dark"
-                ? '<i class="fa-solid fa-sun"></i>'
-                : '<i class="fa-solid fa-moon"></i>';
         });
     </script>
 </html>
